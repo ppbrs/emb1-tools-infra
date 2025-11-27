@@ -1,0 +1,11 @@
+{
+	"editor.renderWhitespace": "all",
+	"editor.multiCursorModifier": "alt",
+	"editor.rulers": [100, 100.5],
+
+	"editor.autoClosingBrackets": "never",
+	"editor.autoClosingQuotes": "never",
+	"editor.autoSurround": "never",
+
+	"workbench.panel.defaultLocation": "right",
+}
