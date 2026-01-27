@@ -1,7 +1,6 @@
 #!/bin/bash
 
-DOWNLOADS_DIR=downloads
-TOOLCHAINS_DIR=toolchains
+source install-common.sh
 
 # https://developer.arm.com/downloads/-/gnu-rm
 URL=https://developer.arm.com/-/media/files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2
@@ -18,8 +17,6 @@ function download {
 		echo "URL does not exist or is not accessible."
 		exit
 	fi
-	echo Preparing directory for downloads
-	mkdir -p $DOWNLOADS_DIR
 	echo Downloading if it\'s not there
 	wget \
 		--no-clobber \
@@ -31,7 +28,6 @@ function download {
 function install {
 
 	echo; echo ► Preparing directory for toolchains
-	mkdir -p $TOOLCHAINS_DIR
 	rm -R $TOOLCHAINS_DIR/$TOOLCHAIN_NAME
 	rm -R $TOOLCHAINS_DIR/$EXTRACTED_NAME
 

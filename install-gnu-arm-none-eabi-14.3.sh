@@ -1,7 +1,6 @@
 #!/bin/bash
 
-DOWNLOADS_DIR=downloads
-TOOLCHAINS_DIR=toolchains
+source install-common.sh
 
 # https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/downloads
 URL=https://developer.arm.com/-/media/Files/downloads/gnu/14.3.rel1/binrel/arm-gnu-toolchain-14.3.rel1-x86_64-arm-none-eabi.tar.xz
@@ -18,8 +17,6 @@ function download {
 		echo "URL does not exist or is not accessible."
 		exit
 	fi
-	echo Preparing directory for downloads
-	mkdir -p $DOWNLOADS_DIR
 	echo Downloading if it\'s not there
 	wget \
 		--no-clobber \
@@ -31,7 +28,6 @@ function download {
 function install {
 
 	echo; echo ► Preparing directory for toolchains
-	mkdir -p $TOOLCHAINS_DIR
 	rm -R $TOOLCHAINS_DIR/$TOOLCHAIN_NAME
 	rm -R $TOOLCHAINS_DIR/$EXTRACTED_NAME
 
